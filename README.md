@@ -15,6 +15,8 @@ So how does this repository help?
 Added optional extras:
  - The install_with_extras.sh script installs a simple web server along with Packer, the LXC builder, etc. so you can plug the whole thing in a container or VM and have it serve the generated .tar.gz files as URLs for you, which can be directly used in Proxmox, like doing this:
 ![image](https://github.com/TheTinkerDad/lxc-template-builder/assets/6706631/b12471c7-a09d-468d-956a-d3904bb6d492)
+
 and then this:
+
 ![image](https://github.com/TheTinkerDad/lxc-template-builder/assets/6706631/a1f8a608-096b-4841-904a-b293e1135597)
 
