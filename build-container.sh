@@ -19,7 +19,7 @@ if [ ! -z $2 ]; then
   else
     TEMPLATE_STORE=$2
   fi
-else
+fi
 
 TEMPLATE_DT=$(date +%Y-%m-%d-%H-%M-%S)
 CURRENT_FOLDER=$(pwd)
