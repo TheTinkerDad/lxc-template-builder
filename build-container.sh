@@ -21,6 +21,9 @@ if [ ! -z $2 ]; then
   fi
 fi
 
+TEMPLATE_STORE=$(cd $TEMPLATE_STORE;pwd)
+echo "Generated template will be stored in $TEMPLATE_STORE"
+
 TEMPLATE_DT=$(date +%Y-%m-%d-%H-%M-%S)
 CURRENT_FOLDER=$(pwd)
 
