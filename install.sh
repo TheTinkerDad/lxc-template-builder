@@ -8,7 +8,7 @@ function install_for_debian() {
 
   wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 
-  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | te>
+  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
   apt update
   apt install packer
 
@@ -30,7 +30,7 @@ OS_GUESS=$(which yum >/dev/null 2>&1 && echo CentOS \
         || which apk >/dev/null 2>&1 && echo Alpine \
         || echo Unknown)
 
-case $OS_GUESS
+case $OS_GUESS in
   CentOS)
     install_for_centos
     exit
