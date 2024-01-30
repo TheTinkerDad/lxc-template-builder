@@ -23,10 +23,11 @@ and then this:
 ![image](https://github.com/TheTinkerDad/lxc-template-builder/assets/6706631/a1f8a608-096b-4841-904a-b293e1135597)
 
 ## Ok, how do I use this?
-- Start a VM or an LXC container with at least 2 gigs of RAM (or more if you want to build some heavy containers, more later on this)
+- Start a VM or an LXC container with at least 2 gigs of RAM (or more if you want to build some heavy containers, more on this later)
 - Within the VM/container clone the Github repo
 - Start `./install.sh` or `install_with_extras.sh` (currently these runs properly on Ubuntu/Debian only, but I'm planning to support other distros too) which will install the dependencies and in case of the latter, optional extras too.
 - Check out the examples folder to see an example Packer config file, LXC config file and provisioning script. Try to build it with
   ```./build-container.sh examples/lxc-template-minecraft-java```
 - If everything works well, it'll create a folder named lxc-template-minecraft-java-<date-and-time> in the current folder containing the .tar.gz file you need.
 - To create your own config, copy the whole lxc-template-minecraft-java folder with another name (e.g. my-lxc-template), modify the provisioning script under the scripts folder according to what you want to install/configure in your template and the two config files if needed.
+- When it comes to configuring the LXC container (see examples/lxc-template-minecraft-java/config/lxc.conf) you must remember that that file contains settings for the LXC container, which will be pulled up, provisioned via the provisioning script, than exported as a template, but the settings of the containers created based on the template can be totally different.
