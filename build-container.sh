@@ -29,6 +29,12 @@ CURRENT_FOLDER=$(pwd)
 
 cd $1
 packer build build.pkr.hcl
+
+if [ ! $? -eq 0 ]; then
+  echo "Packer build failed - exiting. Please check the logs above!"
+  exit
+fi
+
 mkdir $TEMPLATE_STORE/$CONTAINER-$TEMPLATE_DT
 
 # We need to repackage the template because of https://github.com/hashicorp/packer-plugin-lxc/issues/7
