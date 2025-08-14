@@ -27,4 +27,4 @@ apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Verify our installation
-docker --security-opt apparmor=unconfined run hello-world
+docker run --security-opt apparmor=unconfined hello-world
