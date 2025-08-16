@@ -5,11 +5,11 @@ sleep 30
 
 # OS Basics & repo setup
 # Note: SteamCMD requires enabling 32bit arch
-#apt-add-repository multiverse
 dpkg --add-architecture i386
 apt update
 apt upgrade -y
 
+# This allows us to Agree to license conditions from within Packer
 echo steam steam/question select "I AGREE" | debconf-set-selections
 echo steam steam/license note '' | debconf-set-selections
 
