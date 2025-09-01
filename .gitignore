@@ -1,1 +1,3 @@
 output-ct/
+lxc-template-*
+!examples/lxc-template-*
