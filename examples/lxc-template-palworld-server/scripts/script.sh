@@ -16,6 +16,6 @@ echo steam steam/license note '' | debconf-set-selections
 # Package installation
 apt install -y software-properties-common steamcmd
 
-ls -la ~/steamcmd/steamapps/common/
+echo " ---------- INSTALLING PALWORLD ------------"
 
 steamcmd +login anonymous +app_update 1007 +quit
