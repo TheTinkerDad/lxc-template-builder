@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ANSIBLE_PUBLIC_KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIVOx952kWl+i76MLNKW56EG5Nee+xQ1HkEYOHvq6RL0 ansible@workload"
-
 # Let us wait a bit for the container's network to come alive!
 sleep 30
 
