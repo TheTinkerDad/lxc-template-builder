@@ -15,8 +15,14 @@ Besides the normal usage (see the main README.md file), you'll need an SSH publi
 the private key to log in and the public key will be added to the container template. I know, I know, but... it's only a public 
 key and the container template will be yours and yours only unless you decide to share it with someone or the general public.
 
-To add the public key, put it into the ssh_keys folder inside a file named *ansible-key.pub*
-Your private key should be in a file named ~/.ssh/ansible-key - this is where Ansible will look for it.
+Assumming you'll want to try to test playbook provided under the *test* folder, you'll need to create and save your key the
+below way:
+
+ - To add the public key, put it into the ssh_keys folder inside a file named *ansible-key.pub* before building the container template.
+ - Build the container template
+ - Pull up a container using the freshly built template
+ - Your private key should be in a file named ~/.ssh/ansible-key on the host you'll be running Ansible from
+ - Now you can run the test playbook, e.g. *ansible-playbook -i inventory test-playbook.yml*
 
 Yes, pretty much that's it. It will create a fairly small template. After you've built your template and used it to launch
 an LXC container, you can use Ansible to run stuff on it, like provision services, etc.
