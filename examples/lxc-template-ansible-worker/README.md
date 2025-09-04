@@ -16,6 +16,7 @@ the private key to log in and the public key will be added to the container temp
 key and the container template will be yours and yours only unless you decide to share it with someone or the general public.
 
 To add the public key, put it into the ssh_keys folder inside a file named *ansible-key.pub*
+Your private key should be in a file named ~/.ssh/ansible-key - this is where Ansible will look for it.
 
 Yes, pretty much that's it. It will create a fairly small template. After you've built your template and used it to launch
 an LXC container, you can use Ansible to run stuff on it, like provision services, etc.
