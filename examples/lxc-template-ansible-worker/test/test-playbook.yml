@@ -1,0 +1,12 @@
+- name: Check system kernel and architecture
+  hosts: containers
+  gather_facts: no
+
+  tasks:
+    - name: Run uname -a
+      ansible.builtin.shell: uname -a
+      register: uname_output
+
+    - name: Show result
+      ansible.builtin.debug:
+        var: uname_output.stdout

@@ -6,12 +6,15 @@ function install_for_debian() {
   apt upgrade -y
   apt install -y gpg wget
 
-  wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  if [ ! -f /usr/share/keyrings/hashicorp-archive-keyring.gpg ]; then
+    wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
+    apt update
+  fi
 
   echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
   apt update
-  apt install -y packer
-
+  apt install -y packer lxc
   packer plugins install github.com/hashicorp/lxc
 }
 
