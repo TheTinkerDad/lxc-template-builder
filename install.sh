@@ -12,6 +12,8 @@ function install_for_debian() {
     apt update
   fi
 
+  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
+  apt update
   apt install -y packer lxc
   packer plugins install github.com/hashicorp/lxc
 }
